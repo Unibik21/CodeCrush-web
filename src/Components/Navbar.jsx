@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -6,10 +7,10 @@ const Navbar = () => {
 
   return (
     <div className="navbar bg-slate-900 border-b border-slate-700 shadow-sm text-slate-200">
-      <div className="flex-1">
-        <a className="btn btn-ghost text-xl text-indigo-400 hover:text-indigo-300 hover:bg-slate-800">
+      <div className="flex-1 hover:bg-slate-950">
+        <Link to="/" className="btn btn-ghost text-xl text-indigo-400 hover:text-indigo-300 hover:bg-slate-800">
           CodeↃrush
-        </a>
+        </Link>
       </div>
 
       <div className="flex gap-2 mx-4">
@@ -32,9 +33,9 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-slate-800 text-slate-200 rounded-box z-10 mt-3 w-52 p-2 shadow-lg border border-slate-700"
           >
             <li>
-              <a className="hover:bg-slate-700 hover:text-indigo-400">
+              <Link to='/profile' className="hover:bg-slate-700 hover:text-indigo-400">
                 Profile
-              </a>
+              </Link>
             </li>
             <li>
               <a className="hover:bg-slate-700 hover:text-indigo-400">

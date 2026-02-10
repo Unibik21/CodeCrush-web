@@ -12,6 +12,7 @@ const Body = () => {
   const userData = useSelector(store=>store.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const fetchUser = async() =>{
     if(userData) return;
     try{
@@ -31,10 +32,14 @@ const Body = () => {
   },[])
 
   return (
-    <div className="min-h-screen bg-[#0b0f19] text-slate-200">
-        <Navbar/>
-        <Outlet/>
-        <Footer/>
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+
+      <main className="flex-grow">
+        <Outlet />
+      </main>
+
+      <Footer />
     </div>
   )
 }

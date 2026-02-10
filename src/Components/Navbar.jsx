@@ -1,9 +1,26 @@
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+/* eslint-disable no-unused-vars */
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { BASE_URL } from "../utils/constants";
+import axios from "axios";
+import { removeUser } from "../utils/userSlice";
 
 const Navbar = () => {
 
   const user = useSelector(store=>store.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout= async()=>{
+    try{
+      await axios.post(BASE_URL+"/logout",{},{withCredentials:true});
+      dispatch(removeUser());
+      return navigate("/login");
+    }
+    catch(err){
+      console.log("ERROR : "+err.message);
+    }
+  }
 
   return (
     <div className="navbar bg-slate-900 border-b border-slate-700 shadow-sm text-slate-200">
@@ -13,19 +30,19 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div className="flex gap-2 mx-4">
+      {user && <div className="flex gap-2 mx-4">
         <div className="dropdown dropdown-end">
           <div
             tabIndex={0}
             role="button"
             className="btn btn-ghost btn-circle avatar hover:bg-slate-800"
           >
-            {user && <div className="flex w-10 rounded-full ring-2 ring-indigo-500 ring-offset-2 ring-offset-slate-900">
+            <div className="flex w-10 rounded-full ring-2 ring-indigo-500 ring-offset-2 ring-offset-slate-900">
               <img
                 alt="User Avatar"
                 src={user.photoURL}
               />
-            </div>}
+            </div>
           </div>
 
           <ul
@@ -48,13 +65,13 @@ const Navbar = () => {
               </a>
             </li>
             <li>
-              <a className="hover:bg-slate-700 hover:text-red-400">
+              <a onClick={handleLogout} className="hover:bg-slate-700 hover:text-red-400">
                 Logout
               </a>
             </li>
           </ul>
         </div>
-      </div>
+      </div>}
     </div>
   )
 }

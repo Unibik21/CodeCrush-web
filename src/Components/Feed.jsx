@@ -24,7 +24,7 @@ const Feed = () => {
   useEffect(()=>{getFeed()},[]);
 
   return (
-    (feed && <div className='flex items-center justify-center min-h-screen'>
+    (feed && <div className='flex bg-slate-800 items-center justify-center min-h-screen'>
       <UserCard user={feed[0]}/>
     </div>)
   )

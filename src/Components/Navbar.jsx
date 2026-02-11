@@ -24,8 +24,8 @@ const Navbar = () => {
 
   return (
     <div className="navbar bg-slate-900 border-b border-slate-700 shadow-sm text-slate-200">
-      <div className="flex-1 hover:bg-slate-950">
-        <Link to="/" className="btn btn-ghost text-xl text-indigo-400 hover:text-indigo-300 hover:bg-slate-800">
+      <div className="flex-1">
+        <Link to="/" className="btn hover:bg-slate-950 hover:rounded-4xl btn-ghost text-xl text-indigo-400">
           CodeↃrush
         </Link>
       </div>
@@ -55,9 +55,9 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <a className="hover:bg-slate-700 hover:text-indigo-400">
+              <Link to='/connections' className="hover:bg-slate-700 hover:text-indigo-400">
                 Connections
-              </a>
+              </Link>
             </li>
             <li>
               <a className="hover:bg-slate-700 hover:text-indigo-400">

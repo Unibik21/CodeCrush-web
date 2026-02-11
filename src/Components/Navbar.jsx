@@ -60,9 +60,9 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <a className="hover:bg-slate-700 hover:text-indigo-400">
+              <Link to='/request' className="hover:bg-slate-700 hover:text-indigo-400">
                 Requests
-              </a>
+              </Link>
             </li>
             <li>
               <a onClick={handleLogout} className="hover:bg-slate-700 hover:text-red-400">

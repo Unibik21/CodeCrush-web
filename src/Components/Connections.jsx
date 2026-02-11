@@ -7,33 +7,35 @@ import { addConnections } from '../utils/connectionSlice';
 const Connections = () => {
     const connections = useSelector(store=>store.connection);
     const dispatch = useDispatch();
+
     const fetchConnections = async() =>{
         try{
-            const res = await axios.get(BASE_URL+"/user/request/recieved",{withCredentials:true});
-            const users = res.data.data.map(req => req.fromUserId);
-            console.log(users);
-            dispatch(addConnections(users));
+            const res = await axios.get(BASE_URL+"/user/connections",{withCredentials:true});
+            console.log(res.data.data);
+            dispatch(addConnections(res.data.data));
 
         }
         catch(err){
             console.log(err);
         }
     }
+
     useEffect(()=>{
         fetchConnections();
-    },[])
-
-    if(connections.length===0)return ( <h1 className='text-xl'>No Connections</h1>)
+    },[]);
+    
+    if(!connections) return;
+    if(connections.length===0)return ( <h1 className='text-xl text-center my-10'>No Connections</h1>)
 
     return (
-        <div className='text-center justify-center my-10'>
+        <div  className='text-center justify-center my-10'>
             <h1 className='text-xl font-bold my-10'>Connections</h1>
 
             {connections.map((connection)=>{
                 const {_id,firstName,lastName,photoURL,age,gender,about}=connection;
 
                 return(
-                    <div className='w-125 mx-auto  flex items-center m-2 p-2 border border-pink-950 rounded-2xl bg-cyan-950'>
+                    <div key={_id} className='w-125 mx-auto  flex items-center m-2 p-2 border border-pink-950 rounded-2xl bg-cyan-950'>
                         <div><img alt="photo" className='w-20 h-20 rounded-full object-cover' src={photoURL}/></div>
                         <div className='ml-5 text-left'>
                             <h2 className='font-semibold text-sm'>{firstName + " " + lastName}</h2>

@@ -4,19 +4,21 @@ import {BASE_URL} from '../utils/constants'
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import {addUser} from '../utils/userSlice'
+import { useNavigate } from 'react-router-dom';
 
 const EditProfile = ({user}) => {
 
     const [firstName,setFirstName] = useState(user.firstName);
     const [lastName,setLastName] = useState(user.lastName);
-    const [age,setAge] = useState(user.age);
+    const [age,setAge] = useState(user.age || "");
     const [photoURL,setPhotoURL] = useState(user.photoURL);
-    const [gender,setGender] = useState(user.gender);
+    const [gender,setGender] = useState(user.gender || "");
     const [about,setAbout] = useState(user.about);
     const [error,setError] =useState("");
     const [showToast,setShowToast]=useState(false);
     const dispatch = useDispatch();
-
+    const navigate=useNavigate();
+    
     const saveProfile = async()=>{
         try{
             setError("");
@@ -26,8 +28,9 @@ const EditProfile = ({user}) => {
             dispatch(addUser(res?.data?.data));
             setShowToast(true);
             setTimeout(()=>{
-                setShowToast(false);
+                navigate("/");
             },2000);
+            
         }
         catch(err){
             setError(err.response?.data);

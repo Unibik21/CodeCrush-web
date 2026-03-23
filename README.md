@@ -6,7 +6,7 @@
   
   <p align="center">
     <a href="#-key-features">Features</a> •
-    <a href="#-tech-stack">Tech Stack</a> •
+    <a href="#tech-stack">Tech Stack</a> •
     <a href="#-getting-started">Getting Started</a> •
     <a href="#-backend-architecture">Backend Repository</a> 
   </p>

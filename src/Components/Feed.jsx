@@ -23,9 +23,9 @@ const Feed = () => {
 
   useEffect(()=>{getFeed()},[]);
   if(!feed)return;
-  if(feed.length===0) return <h1 className='flex justify-center my-10 font-bold'>No New Users Found</h1> 
+  if(feed.length===0) return <h1 className='flex justify-center items-center min-h-[calc(100vh-80px)] text-2xl font-bold text-slate-400'>No New Users Found</h1> 
   return (
-    (feed && <div className='flex bg-slate-800 items-center justify-center min-h-screen'>
+    (feed && <div className='flex items-center justify-center min-h-[calc(100vh-80px)] w-full'>
       <UserCard user={feed[0]}/>
     </div>)
   )

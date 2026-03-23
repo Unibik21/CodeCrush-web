@@ -3,6 +3,7 @@ import { BASE_URL } from '../utils/constants';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { addConnections } from '../utils/connectionSlice';
+import { Link } from 'react-router-dom';
 
 const Connections = () => {
     const connections = useSelector(store=>store.connection);
@@ -36,11 +37,16 @@ const Connections = () => {
 
                 return(
                     <div key={_id} className='w-125 mx-auto  flex items-center m-2 p-2 border border-pink-950 rounded-2xl bg-cyan-950'>
-                        <div><img alt="photo" className='w-20 h-20 rounded-full object-cover' src={photoURL}/></div>
-                        <div className='ml-5 text-left'>
-                            <h2 className='font-semibold text-sm'>{firstName + " " + lastName}</h2>
-                            {age && gender && <p className='text-xs text-slate-300'>{age+ ", "+ gender}</p>}
-                            <p className='text-xs text-slate-400 truncate max-w-[180px]'>{about}</p>
+                        <div className='w-125 mx-auto  flex items-center'>
+                            <div><img alt="photo" className='w-20 h-20 rounded-full object-cover' src={photoURL}/></div>
+                            <div className='ml-5 text-left'>
+                                <h2 className='font-semibold text-sm'>{firstName + " " + lastName}</h2>
+                                {age && gender && <p className='text-xs text-slate-300'>{age+ ", "+ gender}</p>}
+                                <p className='text-xs text-slate-400 truncate max-w-[180px]'>{about}</p>
+                            </div>
+                        </div>
+                        <div>
+                            <Link to={"/chat/"+_id}><button className='btn btn-primary'>Chat</button></Link>
                         </div>
                     </div>
                 );

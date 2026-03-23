@@ -13,7 +13,7 @@ const handleSendRequest =async(status,userId)=>{
     dispatch(removeUserFromFeed(userId));
   }
   catch(err){
-    console.log(err.message);
+    console.log(err?.response?.data || err.message);
   }
 }
 

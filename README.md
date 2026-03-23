@@ -5,10 +5,10 @@
   </p>
   
   <p align="center">
-    <a href="#features">Features</a> •
-    <a href="#tech-stack">Tech Stack</a> •
-    <a href="#getting-started">Getting Started</a> •
-    <a href="#backend-architecture">Backend Repository</a> 
+    <a href="#-key-features">Features</a> •
+    <a href="#-tech-stack">Tech Stack</a> •
+    <a href="#-getting-started">Getting Started</a> •
+    <a href="#-backend-architecture">Backend Repository</a> 
   </p>
 
   <p align="center">
@@ -82,7 +82,7 @@ Welcome to the frontend repository of **CodeCrush**! This application offers a p
 
 This frontend **must be paired with its backend counterpart** to function properly. 
 
-🔗 **Link to Backend Repository:** *[Insert your backend repository URL here]*
+🔗 **Link to Backend Repository:** *https://github.com/Unibik21/CodeCrush*
 
 Make sure the backend is running and the `BASE_URL` in `src/utils/constants.js` maps correctly to the backend's server port (e.g., `http://localhost:5000`).
 
@@ -94,7 +94,7 @@ Follow these steps to get the frontend environment up and running locally.
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/CodeCrush-web.git
+git clone https://github.com/Unibik21/CodeCrush-web.git
 cd CodeCrush-web
 ```
 
